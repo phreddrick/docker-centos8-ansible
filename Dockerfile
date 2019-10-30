@@ -40,7 +40,7 @@ RUN echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
 # Remove unnecessary getty and udev targets that result in high CPU usage when
 # using multiple containers with Molecule
 # (https://github.com/ansible/molecule/issues/1104)
-RUN rm -f /lib/systemd/system/systemd*udev* \
+RUN rm -rf /lib/systemd/system/systemd*udev* \
   && rm -f /lib/systemd/system/getty.target
 
 VOLUME ["/sys/fs/cgroup"]
